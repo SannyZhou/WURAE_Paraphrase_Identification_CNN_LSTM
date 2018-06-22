@@ -8,6 +8,7 @@ I.Environment Setup:
 	need to download GoogleNews-vectors-negative300.bin for the PI code test
 
 II.About code:
+   
    <1> msrp_sentence_level_parahraseDetection.py (picture of model : msrp_PI_model.png) (Run <3-Test> ,<6> before <1>)
   
 		INFO: deep learning model of English sentence-level paraphrase identification, experiment on MSRPC
@@ -47,19 +48,21 @@ II.About code:
 		RELATED DATA: ../data/sentence_msr_paraphrase_testparsed.txt, ../data/sentence_parsed.txt, raetheta
 		
     IMPLEMENTATION: 
-			(1) TEST THE PRETRAINED MODEL, calculate the phrase or sentence embedding: (-gpu 1 for using gpu, -parsed filename: filename should contain parse tree text, filename sample : ../data/sentence_msr_paraphrase_testparsed.txt)
-				python TestRAE.py -theta raetheta -parsed filename
-			(2) TRAIN MODEL: 
-				python TrainTestRAE.py --batch-size 5000 -model modelname
+		(1) TEST THE PRETRAINED MODEL, calculate the phrase or sentence embedding: (-gpu 1 for using gpu, -parsed filename: filename should contain parse tree text, filename sample : ../data/sentence_msr_paraphrase_testparsed.txt)
+			python TestRAE.py -theta raetheta -parsed filename
+		(2) TRAIN MODEL: 
+			python TrainTestRAE.py --batch-size 5000 -model modelname
 
    <5> msrp_data_process.py run<3 test> before <6>
-		INFO: preprocess data, english data for example, preprocess and split the origin train msrp to train, val set, preprocess origin test set
+		
+	INFO: preprocess data, english data for example, preprocess and split the origin train msrp to train, val set, preprocess origin test set
 		RELATED DATA: ../data/msr_paraphrase_train.txt, torchweights/english_wurae_sentence_msr_paraphrase_trainparsed_nodeFeature.pickle, ../data/msr_paraphrase_test.txt, torchweights/english_wurae_sentence_msr_paraphrase_testparsed_nodeFeature.pickle, ../data/en.json, ../data/stopwords.dat
-		IMPLEMENTATION: 
-			python msrp_data_process.py
+	IMPLEMENTATION: 
+		python msrp_data_process.py
 
    <6> chinese_PI_model.png, msrp_PI_model.png
-		INFO: the picture of sentence-level paraphrase identification and article-level paraphrase identification
+		
+	INFO: the picture of sentence-level paraphrase identification and article-level paraphrase identification
 
 III.About data:
   Those data should be included in the project. Because of the limitated file size, we would supply sample data.
