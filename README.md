@@ -8,8 +8,19 @@ I.Environment Setup:
 	need to download GoogleNews-vectors-negative300.bin for the PI code test
 
 II.About code:
+
+   <1> Weighted_Unfolding_Recursive_AutoEncoders_Torch.py, TestRecusiveAutoEncoderTorch.py
+		
+    INFO: Weighted Unfolding Recursive Autoencoders model for phrase embedding and sentence embedding,
+	train on a large scale of parse trees which is parsed from sentences by Stanford Parser
+    RELATED DATA: ../data/sentence_msr_paraphrase_testparsed.txt, ../data/sentence_parsed.txt, torchweights/english_wurae.pkl, ../data/english_counter.pkl (english_counter.pkl refers to the frequency of words in the corpus, here only gives the sample result data of msrpc)
+    IMPLEMENTATION: 
+	(1) TEST THE PRETRAINED MODEL, calculate the phrase or sentence embedding: (-gpu 1 for using gpu, -parsed filename: filename should contain parse tree text, filename sample : ../data/sentence_msr_paraphrase_testparsed.txt, ../data/sentence_msr_paraphrase_trainparsed.txt)
+		python TestRecusiveAutoEncoderTorch.py --model-weight torchweights/weightfilename -gpu 0 -parsed filename
+	(2) TRAIN MODEL: 
+		python Weighted_Unfolding_Recursive_AutoEncoders_Torch.py --batch-size 5000 -unfold 1 -gpu 1 -weighted 1 -model modelname
    
-   <1> msrp_sentence_level_parahraseDetection.py (picture of model : msrp_PI_model.png) (Run <3-Test> ,<6> before <1>)
+   <2> msrp_sentence_level_parahraseDetection.py (picture of model : msrp_PI_model.png) (Run <1-Test> ,<4> before <2>)
   
 	INFO: deep learning model of English sentence-level paraphrase identification, experiment on MSRPC
 	RELATED DATA : ../data/msrpc_train_set.pkl, ../data/msrpc_test_set.pkl, ../data/msrpc_val_set.pkl, checkpoint_msrp_paraphrase_detection.hdf5(Because of file size, here only gives the origin data, so first run the code<3> and code<6> to get the data for training)
@@ -20,7 +31,7 @@ II.About code:
 	(2) TRAIN MODEL: (default num_of_patience is 20)
 		python msrp_sentence_level_parahraseDetection.py -test 0 --early-stopping num_of_patience
 	
-   <2> chinese_article_level_parahraseDetection.py (picture of model : chinese_PI_model.png)
+   <3> chinese_article_level_parahraseDetection.py (picture of model : chinese_PI_model.png)
 		
     INFO: deep learning model of Chinese article-level paraphrase identification, experiment on Chinese Sports & Entertainment NEWS Article paraphrase corpus
     RELATED DATA: ../data/chinese_train_set_with_others.pkl, ../data/chinese_test_set_with_others.pkl, ../data/chinese_val_set_with_others.pkl, checkpoint_chinese_paraphrase_detection.hdf5 (Because of file size, here only gives the sample data for training)
@@ -30,34 +41,14 @@ II.About code:
 	(2) TRAIN MODEL: (default num_of_patience is 15)
 		python chinese_article_level_parahraseDetection.py -test 0 --early-stopping num_of_patience
 
-   <3> Weighted_Unfolding_Recursive_AutoEncoders_Torch.py, TestRecusiveAutoEncoderTorch.py
-		
-    INFO: Weighted Unfolding Recursive Autoencoders model for english, train on a large scale of parse trees which is parsed from sentences by Stanford Parser
-    RELATED DATA: ../data/sentence_msr_paraphrase_testparsed.txt, ../data/sentence_parsed.txt, torchweights/english_wurae.pkl, ../data/english_counter.pkl (here only gives the sample result data of msrpc)
-    IMPLEMENTATION: 
-	(1) TEST THE PRETRAINED MODEL, calculate the phrase or sentence embedding: (-gpu 1 for using gpu, -parsed filename: filename should contain parse tree text, filename sample : ../data/sentence_msr_paraphrase_testparsed.txt, ../data/sentence_msr_paraphrase_trainparsed.txt)
-		python TestRecusiveAutoEncoderTorch.py --model-weight torchweights/weightfilename -gpu 0 -parsed filename
-	(2) TRAIN MODEL: 
-		python Weighted_Unfolding_Recursive_AutoEncoders_Torch.py --batch-size 5000 -unfold 1 -gpu 1 -weighted 1 -model modelname
-
-   <4> RecursiveAutoEncoder.py, TrainTestRAE.py, TestRAE.py
-	
-	INFO: Recursive Autoencoders model for english, train on a large scale of parse trees which is parsed from sentences by Stanford Parser
-	RELATED DATA: ../data/sentence_msr_paraphrase_testparsed.txt, ../data/sentence_parsed.txt, raetheta	
-    IMPLEMENTATION: 
-	(1) TEST THE PRETRAINED MODEL, calculate the phrase or sentence embedding: (-gpu 1 for using gpu, -parsed filename: filename should contain parse tree text, filename sample : ../data/sentence_msr_paraphrase_testparsed.txt)
-		python TestRAE.py -theta raetheta -parsed filename
-	(2) TRAIN MODEL: 
-		python TrainTestRAE.py --batch-size 5000 -model modelname
-
-   <5> msrp_data_process.py run<3 test> before <6>
+   <4> msrp_data_process.py run<3 test> before <6>
 		
 	INFO: preprocess data, english data for example, preprocess and split the origin train msrp to train, val set, preprocess origin test set
 	RELATED DATA: ../data/msr_paraphrase_train.txt, torchweights/english_wurae_sentence_msr_paraphrase_trainparsed_nodeFeature.pickle, ../data/msr_paraphrase_test.txt, torchweights/english_wurae_sentence_msr_paraphrase_testparsed_nodeFeature.pickle, ../data/en.json, ../data/stopwords.dat
 	IMPLEMENTATION: 
 		python msrp_data_process.py
 
-   <6> chinese_PI_model.png, msrp_PI_model.png
+   <5> chinese_PI_model.png, msrp_PI_model.png
 		
 	INFO: the picture of sentence-level paraphrase identification and article-level paraphrase identification
 
