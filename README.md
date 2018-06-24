@@ -1,5 +1,6 @@
 # WURAE_Paraphrase_Identification_CNN_LSTM
-Project of Paraphrase Identification Based on Weighted URAE, Unit Similarity and Context Correlation Feature
+
+Code & Data for our NLPCC 2018 paper "Paraphrase Identification Based on Weighted URAE, Unit Similarity and Context Correlation Feature"
 
 I.Environment Setup:
 
