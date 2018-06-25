@@ -17,7 +17,7 @@ II.About code:
     RELATED DATA: ../data/sentence_msr_paraphrase_testparsed.txt, ../data/sentence_parsed.txt, torchweights/english_wurae.pkl, ../data/english_counter.pkl (english_counter.pkl refers to the frequency of words in the corpus, here only gives the sample result data of msrpc)
     IMPLEMENTATION: 
 	(1) TEST THE PRETRAINED MODEL, calculate the phrase or sentence embedding: (-gpu 1 for using gpu, -parsed filename: filename should contain parse tree text, filename sample : ../data/sentence_msr_paraphrase_testparsed.txt, ../data/sentence_msr_paraphrase_trainparsed.txt)
-		python TestRecusiveAutoEncoderTorch.py --model-weight torchweights/weightfilename -gpu 0 -parsed filename
+		python TestRecursiveAutoEncoderTorch.py --model-weight torchweights/weightfilename -gpu 0 -parsed filename
 	(2) TRAIN MODEL: 
 		python Weighted_Unfolding_Recursive_AutoEncoders_Torch.py --batch-size 5000 -unfold 1 -gpu 1 -weighted 1 -model modelname
    
