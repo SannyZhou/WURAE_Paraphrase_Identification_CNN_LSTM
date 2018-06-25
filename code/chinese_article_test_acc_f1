@@ -1,0 +1,24 @@
+end of model
+['loss', 'acc']
+[0.018324444645334073, 0.993127147766323]
+[[1.]
+ [1.]
+ [0.]
+ [1.]
+ [1.]
+ [0.]
+ [1.]
+ [0.]
+ [1.]
+ [0.]]
+Precision, Recall and F1-Score...
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       638
+          1       1.00      0.99      0.99       817
+
+avg / total       0.99      0.99      0.99      1455
+
+Confusion Matrix...
+[[635   3]
+ [  7 810]]
