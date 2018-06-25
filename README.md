@@ -42,16 +42,12 @@ II.About code:
 	(2) TRAIN MODEL: (default num_of_patience is 15)
 		python chinese_article_level_parahraseDetection.py -test 0 --early-stopping num_of_patience
 
-   <4> msrp_data_process.py run<3 test> before <6>
+   <4> msrp_data_process.py run<1 test> before <4>
 		
 	INFO: preprocess data, english data for example, preprocess and split the origin train msrp to train, val set, preprocess origin test set
 	RELATED DATA: ../data/msr_paraphrase_train.txt, torchweights/english_wurae_sentence_msr_paraphrase_trainparsed_nodeFeature.pickle, ../data/msr_paraphrase_test.txt, torchweights/english_wurae_sentence_msr_paraphrase_testparsed_nodeFeature.pickle, ../data/en.json, ../data/stopwords.dat
 	IMPLEMENTATION: 
 		python msrp_data_process.py
-
-   <5> chinese_PI_model.png, msrp_PI_model.png
-		
-	INFO: the picture of sentence-level paraphrase identification and article-level paraphrase identification
 
 III.About data:
   Those data should be included in the project. Because of the limitated file size, we would supply sample data.
@@ -63,20 +59,12 @@ III.About data:
 	<5> sentence_parsed.txt, sentence_msr_paraphrase_testparsed.txt: train and validation file for english WURAE training, parse trees of sentences from COCA NEWS, NEWS ON WEB, train set of msrpc
 	<6> sentence_msr_paraphrase_trainparsed.txt, sentence_msr_paraphrase_testparsed.txt : parse tree file for origin msrpc train & test file
 	<7> en.json, stopwords.dat : english and chinese stopwords file
-	<8> chinese_train_set_with_others.pkl, chinese_val_set_with_others.pkl, chinese_test_set_with_others.pkl : preprocessed chinese train, validation, test file. The data could be loaded from the files by pickle, including coloumn of 'origin', 'repl', 'origin_sentence_embedding', 'repl_sentence_embedding', 'label', 'similarity', 'word_matrix_t', where 'origin' and 'repl' is the sentences list of articles, 'origin_sentence_embedding' and 'repl_sentence_embedding' is the list of sentence embedding of articles, 'similarity' is the sentence similarity matrix and 'word_matrix_t' is the transpose of 'similarity'.
+	<8> chinese_train_set_with_others.pkl, chinese_val_set_with_others.pkl, chinese_test_set_with_others.pkl :(SAMPLE) preprocessed chinese train, validation, test file. The data could be loaded from the files by pickle, including coloumn of 'origin', 'repl', 'origin_sentence_embedding', 'repl_sentence_embedding', 'label', 'similarity', 'word_matrix_t', where 'origin' and 'repl' is the sentences list of articles, 'origin_sentence_embedding' and 'repl_sentence_embedding' is the list of sentence embedding of articles, 'similarity' is the sentence similarity matrix and 'word_matrix_t' is the transpose of 'similarity'.
 	<9> msrpc_train_set.pkl, msrpc_val_set.pkl, msrpc_test_set.pkl : preprocessed msrpc train, validation, test file, including list of word embedding, word simiarlity matrix, node similairty matrix, bleu score, lcs, mini-edit, tf-idf, number feature,label, pair of sentences.
 	<10> sample_chinese.pkl, sample_chinese_origin_trees_list.pkl, sample_chinese_repl_trees_list.pkl : for the test of chinese WURAE
 	<11> msr_paraphrase_test.txt, msr_paraphrase_train.txt : origin msrp test and train set
 	
    Data in code/torchweights:
-		
-	<1> chinese_wurae.pkl, english_wurae.pkl: chinese, english wurae weight parameters
-	<2> english_wurae_sentence_msr_paraphrase_testparsed_nodeFeature.pickle, english_wurae_sentence_msr_paraphrase_trainparsed_nodeFeature.pickle :  phrase embedding list of msrp
 
-   Sample Data:
-		
-	<1> msr_paraphrase_test.txt, msr_paraphrase_train.txt : origin msrp test and train set
-	<2> sample_chinese_parsed.txt, sentence_msr_paraphrase_testparsed.txt, sentence_msr_paraphrase_trainparsed.txt: parse tree file, using in RAE training and testing
-	<3> en.json, stopwords.dat : english and chinese stopwords file
-	<4> english_counter.pkl: frequency of words in the corpus for weighted URAE
-	<5> sample_chinese.pkl, sample_chinese_origin_trees_list.pkl, sample_chinese_repl_trees_list.pkl : for the test of chinese WURAE
+	<1> english_wurae_sentence_msr_paraphrase_testparsed_nodeFeature.pickle, english_wurae_sentence_msr_paraphrase_trainparsed_nodeFeature.pickle :  phrase embedding list of msrp
+
