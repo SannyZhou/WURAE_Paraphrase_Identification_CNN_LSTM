@@ -1,16 +1,29 @@
 # WURAE_Paraphrase_Identification_CNN_LSTM
 
-Code & Data for our NLPCC 2018 paper "Paraphrase Identification Based on Weighted URAE, Unit Similarity and Context Correlation Feature"
+Code & Data for our NLPCC 2018 paper [Paraphrase Identification Based on Weighted URAE, Unit Similarity and Context Correlation Feature](https://link.springer.com/chapter/10.1007/978-3-319-99501-4_4)
 
-I.Environment Setup:
+## Citation
+Please cite as: <br>
+		
+	@inproceedings{zhou2018paraphrase,
+	  title={Paraphrase identification based on weighted URAE, unit similarity and context correlation feature},
+	  author={Zhou, Jie and Liu, Gongshen and Sun, Huanrong},
+	  booktitle={CCF International Conference on Natural Language Processing and Chinese Computing},
+	  pages={41--53},
+	  year={2018},
+	  organization={Springer}
+	}
+	
+
+## Environment Setup:
 
 	conda create -n env_name python=3.5
 	pip install -r requirements.txt
 	need to download GoogleNews-vectors-negative300.bin for the PI code test
 
-II.About code:
+## About code:
 
-   <1> Weighted_Unfolding_Recursive_AutoEncoders_Torch.py, TestRecusiveAutoEncoderTorch.py
+   1. Weighted_Unfolding_Recursive_AutoEncoders_Torch.py, TestRecusiveAutoEncoderTorch.py
 		
     INFO: Weighted Unfolding Recursive Autoencoders model for phrase embedding and sentence embedding,
 	train on a large scale of parse trees which is parsed from sentences by Stanford Parser
@@ -21,7 +34,7 @@ II.About code:
 	(2) TRAIN MODEL: 
 		python Weighted_Unfolding_Recursive_AutoEncoders_Torch.py --batch-size 5000 -unfold 1 -gpu 1 -weighted 1 -model modelname
    
-   <2> msrp_sentence_level_parahraseDetection.py (picture of model : msrp_PI_model.png) (Run <1-Test> ,<4> before <2>)
+   2. msrp_sentence_level_parahraseDetection.py (picture of model : msrp_PI_model.png) (Run <1-Test> ,<4> before <2>)
   
 	INFO: deep learning model of English sentence-level paraphrase identification, experiment on MSRPC
 	RELATED DATA : ../data/msrpc_train_set.pkl, ../data/msrpc_test_set.pkl, ../data/msrpc_val_set.pkl, checkpoint_msrp_paraphrase_detection.hdf5(Because of file size, here only gives the origin data, so first run the code<3> and code<6> to get the data for training)
@@ -32,7 +45,7 @@ II.About code:
 	(2) TRAIN MODEL: (default num_of_patience is 20)
 		python msrp_sentence_level_parahraseDetection.py -test 0 --early-stopping num_of_patience
 	
-   <3> chinese_article_level_parahraseDetection.py (picture of model : chinese_PI_model.png)
+   3. chinese_article_level_parahraseDetection.py (picture of model : chinese_PI_model.png)
 		
     INFO: deep learning model of Chinese article-level paraphrase identification, experiment on Chinese Sports & Entertainment NEWS Article paraphrase corpus
     RELATED DATA: ../data/chinese_train_set_with_others.pkl, ../data/chinese_test_set_with_others.pkl, ../data/chinese_val_set_with_others.pkl, checkpoint_chinese_paraphrase_detection.hdf5 (Because of file size, here only gives the sample data for training)
@@ -42,14 +55,14 @@ II.About code:
 	(2) TRAIN MODEL: (default num_of_patience is 15)
 		python chinese_article_level_parahraseDetection.py -test 0 --early-stopping num_of_patience
 
-   <4> msrp_data_process.py run<1 test> before <4>
+   4. msrp_data_process.py run<1 test> before <4>
 		
 	INFO: preprocess data, english data for example, preprocess and split the origin train msrp to train, val set, preprocess origin test set
 	RELATED DATA: ../data/msr_paraphrase_train.txt, torchweights/english_wurae_sentence_msr_paraphrase_trainparsed_nodeFeature.pickle, ../data/msr_paraphrase_test.txt, torchweights/english_wurae_sentence_msr_paraphrase_testparsed_nodeFeature.pickle, ../data/en.json, ../data/stopwords.dat
 	IMPLEMENTATION: 
 		python msrp_data_process.py
 
-III.About data:
+## About data:
   Those data should be included in the project. Because of the limitated file size, we would supply sample data.
   
 	<1> GoogleNews-vectors-negative300.bin : english pre-trained word2vec
