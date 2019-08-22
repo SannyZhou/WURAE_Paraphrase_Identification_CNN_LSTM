@@ -1,6 +1,6 @@
 # WURAE_Paraphrase_Identification_CNN_LSTM
 
-Code & Data for our NLPCC 2018 paper [Paraphrase Identification Based on Weighted URAE, Unit Similarity and Context Correlation Feature](https://link.springer.com/chapter/10.1007/978-3-319-99501-4_4)
+Code & Data for our NLPCC 2018 paper <br> [Paraphrase Identification Based on Weighted URAE, Unit Similarity and Context Correlation Feature](https://link.springer.com/chapter/10.1007/978-3-319-99501-4_4)
 
 ## Citation
 Please cite as: <br>
